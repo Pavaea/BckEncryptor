@@ -14,86 +14,104 @@
     .container{width:100%;max-width:400px;display:flex;flex-direction:column;gap:0;}
 
     .header{margin-bottom:48px;opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .05s;}
-    .label{font-size:13px;font-weight:400;color:rgba(255,255,255,.4);margin-bottom:6px;}
+    .lbl{font-size:13px;font-weight:400;color:rgba(255,255,255,.4);margin-bottom:6px;}
     .title{font-size:34px;font-weight:300;letter-spacing:-.03em;line-height:1.05;}
 
-    /* drop zone */
     .dropzone{
       border:0.5px dashed rgba(255,255,255,.2);border-radius:20px;
       padding:40px 24px;text-align:center;cursor:pointer;
-      transition:background .2s,border-color .2s;
-      margin-bottom:16px;
+      transition:background .2s,border-color .2s;margin-bottom:20px;
       opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .15s;
-      position:relative;
     }
     .dropzone:hover,.dropzone.over{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.4);}
     .dropzone.has-file{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);border-style:solid;}
     .dz-icon{font-size:36px;margin-bottom:12px;opacity:.35;}
     .dz-main{font-size:15px;font-weight:300;color:rgba(255,255,255,.8);margin-bottom:4px;}
     .dz-sub{font-size:12px;color:rgba(255,255,255,.3);}
-    .dz-filename{font-size:13px;font-weight:400;color:#fff;margin-top:8px;word-break:break-all;}
-    #fileInput{display:none;}
 
-    /* fields */
-    .field{margin-bottom:12px;opacity:0;transform:translateY(12px);}
-    .field:nth-child(1){animation:rise .7s ease forwards .25s;}
-    .field:nth-child(2){animation:rise .7s ease forwards .32s;}
-    .field label{
+    .field{margin-bottom:14px;opacity:0;transform:translateY(12px);}
+    .field.f1{animation:rise .7s ease forwards .25s;}
+    .field.f2{animation:rise .7s ease forwards .32s;}
+    .field.f3{animation:rise .7s ease forwards .38s;}
+    .field > label{
       display:block;font-size:11px;font-weight:400;
       color:rgba(255,255,255,.4);letter-spacing:.03em;
       text-transform:uppercase;margin-bottom:8px;
     }
-    .field input{
-      width:100%;background:rgba(255,255,255,.08);
-      border:0.5px solid rgba(255,255,255,.15);border-radius:12px;
-      color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
-      font-size:17px;font-weight:300;padding:13px 16px;
-      outline:none;transition:border-color .2s,background .2s;
-      -webkit-appearance:none;appearance:none;color-scheme:dark;
+    .input-wrap{position:relative;}
+    .input-wrap input{
+      display:block;
+      width:100%;
+      background:rgba(255,255,255,.08);
+      border:0.5px solid rgba(255,255,255,.15);
+      border-radius:12px;
+      color:#ffffff;
+      font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+      font-size:17px;
+      font-weight:300;
+      padding:13px 48px 13px 16px;
+      outline:none;
+      transition:border-color .2s,background .2s;
+      -webkit-appearance:none;
+      appearance:none;
     }
-    .field input:focus{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12);}
+    .input-wrap input:focus{
+      border-color:rgba(255,255,255,.4);
+      background:rgba(255,255,255,.12);
+    }
+    .input-wrap input::placeholder{color:rgba(255,255,255,.25);}
+    .eye-btn{
+      position:absolute;right:14px;top:50%;transform:translateY(-50%);
+      background:none;border:none;cursor:pointer;padding:4px;
+      color:rgba(255,255,255,.35);font-size:18px;line-height:1;
+      transition:color .2s;
+    }
+    .eye-btn:hover{color:rgba(255,255,255,.7);}
 
-    /* output name */
     .out-row{
       display:flex;align-items:center;gap:8px;margin-bottom:24px;
-      opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .38s;
+      opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .44s;
     }
     .out-row label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;}
     .out-row input{
-      flex:1;background:rgba(255,255,255,.08);border:0.5px solid rgba(255,255,255,.15);
-      border-radius:10px;color:#fff;font-size:14px;font-weight:300;padding:10px 12px;
-      outline:none;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
-      color-scheme:dark;transition:border-color .2s;
+      flex:1;
+      background:rgba(255,255,255,.08);
+      border:0.5px solid rgba(255,255,255,.15);
+      border-radius:10px;
+      color:#ffffff;
+      font-size:14px;font-weight:300;padding:10px 12px;
+      outline:none;
+      font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+      transition:border-color .2s;
+      -webkit-appearance:none;appearance:none;
     }
     .out-row input:focus{border-color:rgba(255,255,255,.4);}
+    .out-row input::placeholder{color:rgba(255,255,255,.25);}
     .out-ext{font-size:13px;color:rgba(255,255,255,.3);}
 
-    /* btn */
-    .btn-wrap{opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .44s;}
+    .btn-wrap{opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .5s;}
     .btn{
       width:100%;background:#fff;border:none;border-radius:14px;
       color:#000;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
       font-size:17px;font-weight:400;padding:16px;cursor:pointer;
       letter-spacing:-.01em;transition:opacity .15s,transform .15s;
     }
-    .btn:disabled{opacity:.3;cursor:not-allowed;}
+    .btn:disabled{opacity:.25;cursor:not-allowed;}
     .btn:not(:disabled):hover{opacity:.88;}
     .btn:not(:disabled):active{transform:scale(.98);}
 
-    /* status */
     .status{
-      margin-top:16px;text-align:center;font-size:13px;
-      color:rgba(255,255,255,.4);min-height:18px;
-      opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .5s;
+      margin-top:14px;text-align:center;font-size:13px;
+      color:rgba(255,255,255,.35);min-height:18px;
+      opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .56s;
     }
     .status.ok{color:#34C759;}
-    .status.err{color:rgba(255,80,80,.8);}
+    .status.err{color:rgba(255,80,80,.85);}
 
-    /* progress */
     .prog-wrap{
       height:2px;background:rgba(255,255,255,.08);border-radius:999px;
       margin-top:12px;overflow:hidden;
-      opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .52s;
+      opacity:0;transform:translateY(12px);animation:rise .7s ease forwards .58s;
     }
     .prog-fill{height:100%;width:0%;background:#fff;border-radius:999px;transition:width .3s;}
 
@@ -104,57 +122,59 @@
 <div class="container">
 
   <div class="header">
-    <div class="label">File Utility</div>
+    <div class="lbl">File Utility</div>
     <div class="title">Encryptor</div>
   </div>
 
-  <!-- Drop zone -->
   <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
     <div class="dz-icon" id="dzIcon">📄</div>
     <div class="dz-main" id="dzMain">Drop file here</div>
     <div class="dz-sub" id="dzSub">or tap to browse · epub, txt, pdf, any file</div>
-    <div class="dz-filename" id="dzFilename"></div>
-    <input type="file" id="fileInput">
+    <input type="file" id="fileInput" style="display:none;">
   </div>
 
-  <!-- Password -->
-  <div class="field">
+  <div class="field f1">
     <label>Password</label>
-    <input type="password" id="password" placeholder="Enter encryption password" autocomplete="new-password"/>
+    <div class="input-wrap">
+      <input type="password" id="password" placeholder="Enter encryption password" autocomplete="new-password"/>
+      <button class="eye-btn" type="button" onclick="toggleEye('password',this)" tabindex="-1">👁</button>
+    </div>
   </div>
 
-  <!-- Confirm -->
-  <div class="field">
+  <div class="field f2">
     <label>Confirm password</label>
-    <input type="password" id="confirm" placeholder="Repeat password" autocomplete="new-password"/>
+    <div class="input-wrap">
+      <input type="password" id="confirm" placeholder="Repeat password" autocomplete="new-password"/>
+      <button class="eye-btn" type="button" onclick="toggleEye('confirm',this)" tabindex="-1">👁</button>
+    </div>
   </div>
 
-  <!-- Output name -->
-  <div class="out-row">
-    <label>Output name</label>
-    <input type="text" id="outName" placeholder="my-book"/>
-    <span class="out-ext">.bin</span>
+  <div class="field f3">
+    <label>Output filename</label>
+    <div class="out-row" style="margin-bottom:0;">
+      <input type="text" id="outName" placeholder="my-book" autocomplete="off"/>
+      <span class="out-ext">.bin</span>
+    </div>
   </div>
+
+  <div style="height:20px;"></div>
 
   <div class="btn-wrap">
     <button class="btn" id="encBtn" disabled onclick="encrypt()">Encrypt &amp; Download</button>
+    <div class="status" id="status">Select a file to begin</div>
+    <div class="prog-wrap"><div class="prog-fill" id="progFill"></div></div>
   </div>
-
-  <div class="status" id="status"></div>
-  <div class="prog-wrap"><div class="prog-fill" id="progFill"></div></div>
 
 </div>
 <script>
   let selectedFile = null;
 
-  // drag & drop
   const dz = document.getElementById('dropzone');
   dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('over'); });
   dz.addEventListener('dragleave', () => dz.classList.remove('over'));
   dz.addEventListener('drop', e => {
     e.preventDefault(); dz.classList.remove('over');
-    const f = e.dataTransfer.files[0];
-    if (f) setFile(f);
+    if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
   });
   document.getElementById('fileInput').addEventListener('change', e => {
     if (e.target.files[0]) setFile(e.target.files[0]);
@@ -163,37 +183,40 @@
   function setFile(f) {
     selectedFile = f;
     dz.classList.add('has-file');
-    document.getElementById('dzIcon').textContent = fileIcon(f.name);
+    document.getElementById('dzIcon').textContent = /\.epub$/i.test(f.name) ? '📖' : /\.txt$/i.test(f.name) ? '📝' : '📄';
     document.getElementById('dzMain').textContent = f.name;
-    document.getElementById('dzSub').textContent = formatBytes(f.size);
-    document.getElementById('dzFilename').textContent = '';
-    // auto fill output name
-    const base = f.name.replace(/\.[^.]+$/, '').replace(/\s+/g, '-').toLowerCase();
+    const kb = f.size < 1048576 ? (f.size/1024).toFixed(1)+' KB' : (f.size/1048576).toFixed(1)+' MB';
+    document.getElementById('dzSub').textContent = kb;
+    const base = f.name.replace(/\.[^.]+$/,'').replace(/\s+/g,'-').toLowerCase();
     document.getElementById('outName').value = base;
     checkReady();
   }
 
-  function fileIcon(name) {
-    if (/\.epub$/i.test(name)) return '📖';
-    if (/\.txt$/i.test(name)) return '📝';
-    if (/\.pdf$/i.test(name)) return '📕';
-    return '📄';
-  }
-  function formatBytes(b) {
-    if (b < 1024) return b + ' B';
-    if (b < 1048576) return (b/1024).toFixed(1) + ' KB';
-    return (b/1048576).toFixed(1) + ' MB';
+  function toggleEye(id, btn) {
+    const inp = document.getElementById(id);
+    if (inp.type === 'password') { inp.type = 'text'; btn.textContent = '🙈'; }
+    else { inp.type = 'password'; btn.textContent = '👁'; }
   }
 
-  ['password','confirm','outName'].forEach(id =>
-    document.getElementById(id).addEventListener('input', checkReady)
-  );
+  ['password','confirm','outName'].forEach(id => {
+    document.getElementById(id).addEventListener('input', checkReady);
+    document.getElementById(id).addEventListener('change', checkReady);
+  });
 
   function checkReady() {
     const pw = document.getElementById('password').value;
     const cf = document.getElementById('confirm').value;
     const nm = document.getElementById('outName').value.trim();
-    document.getElementById('encBtn').disabled = !(selectedFile && pw.length >= 4 && pw === cf && nm);
+    const st = document.getElementById('status');
+    let msg = '', cls = '';
+    if (!selectedFile)       { msg = 'Select a file to begin'; }
+    else if (pw.length < 4)  { msg = 'Password must be at least 4 characters'; }
+    else if (pw !== cf)      { msg = 'Passwords do not match'; cls = 'err'; }
+    else if (!nm)            { msg = 'Enter an output filename'; }
+    else                     { msg = 'Ready to encrypt'; }
+    st.textContent = msg;
+    st.className = 'status' + (cls ? ' '+cls : '');
+    document.getElementById('encBtn').disabled = !!(msg !== 'Ready to encrypt');
   }
 
   async function encrypt() {
@@ -204,66 +227,49 @@
     const pf   = document.getElementById('progFill');
 
     btn.disabled = true;
-    st.className = 'status';
-    st.textContent = 'Reading file…';
-    pf.style.width = '10%';
+    st.className = 'status'; st.textContent = 'Reading file…'; pf.style.width = '10%';
 
     try {
-      // read file
       const ab = await selectedFile.arrayBuffer();
-      pf.style.width = '30%';
-      st.textContent = 'Deriving key…';
+      pf.style.width = '30%'; st.textContent = 'Deriving key…';
 
-      // derive key from password using PBKDF2
       const enc = new TextEncoder();
-      const keyMaterial = await crypto.subtle.importKey(
-        'raw', enc.encode(pw), 'PBKDF2', false, ['deriveKey']
-      );
+      const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(pw), 'PBKDF2', false, ['deriveKey']);
       const salt = crypto.getRandomValues(new Uint8Array(16));
-      const key = await crypto.subtle.deriveKey(
-        { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
-        keyMaterial,
-        { name: 'AES-GCM', length: 256 },
-        false, ['encrypt']
+      const key  = await crypto.subtle.deriveKey(
+        { name:'PBKDF2', salt, iterations:100000, hash:'SHA-256' },
+        keyMaterial, { name:'AES-GCM', length:256 }, false, ['encrypt']
       );
-      pf.style.width = '60%';
-      st.textContent = 'Encrypting…';
+      pf.style.width = '60%'; st.textContent = 'Encrypting…';
 
-      const iv = crypto.getRandomValues(new Uint8Array(12));
-      const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, ab);
+      const iv        = crypto.getRandomValues(new Uint8Array(12));
+      const encrypted = await crypto.subtle.encrypt({ name:'AES-GCM', iv }, key, ab);
       pf.style.width = '85%';
 
-      // store original filename length + filename + ext for reader to know type
-      const origName = enc.encode(selectedFile.name);
+      const origName   = enc.encode(selectedFile.name);
       const nameLenBuf = new Uint8Array(2);
       new DataView(nameLenBuf.buffer).setUint16(0, origName.length, false);
 
-      // layout: [2 nameLen][nameBytes][16 salt][12 iv][encrypted]
       const out = new Uint8Array(2 + origName.length + 16 + 12 + encrypted.byteLength);
-      let offset = 0;
-      out.set(nameLenBuf, offset); offset += 2;
-      out.set(origName, offset);   offset += origName.length;
-      out.set(salt, offset);       offset += 16;
-      out.set(iv, offset);         offset += 12;
-      out.set(new Uint8Array(encrypted), offset);
+      let off = 0;
+      out.set(nameLenBuf, off); off += 2;
+      out.set(origName,   off); off += origName.length;
+      out.set(salt,       off); off += 16;
+      out.set(iv,         off); off += 12;
+      out.set(new Uint8Array(encrypted), off);
 
       pf.style.width = '100%';
-      st.className = 'status ok';
-      st.textContent = 'Done — downloading…';
+      st.className = 'status ok'; st.textContent = 'Done — downloading…';
 
-      // download
-      const blob = new Blob([out], { type: 'application/octet-stream' });
+      const blob = new Blob([out], { type:'application/octet-stream' });
       const url  = URL.createObjectURL(blob);
       const a    = document.createElement('a');
-      a.href = url; a.download = name + '.bin'; a.click();
+      a.href = url; a.download = name+'.bin'; a.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
-
     } catch(e) {
-      st.className = 'status err';
-      st.textContent = 'Error: ' + e.message;
+      st.className = 'status err'; st.textContent = 'Error: ' + e.message;
       pf.style.width = '0%';
     }
-    btn.disabled = false;
     checkReady();
   }
 </script>
